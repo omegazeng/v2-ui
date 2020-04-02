@@ -141,7 +141,7 @@ def init_db(update=False):
     add_if_not_exist(Setting('v2_restart_cmd', 'v2_restart_cmd', 'systemctl restart v2ray', 'text', '', False), update)
     add_if_not_exist(Setting('traffic_job_interval', 'traffic_job_interval', '30', 'int', '', True), update)
     add_if_not_exist(Setting('v2ctl_cmd_path', 'v2ctl_cmd_path', '/usr/bin/v2ray/v2ctl', 'text', '', True), update)
-    add_if_not_exist(Setting('secret_key', '', os.urandom(24), 'text', '', True), False)
+    add_if_not_exist(Setting('secret_key', '', str(os.urandom(24)), 'text', '', True), False)
     db.session.commit()
 
 

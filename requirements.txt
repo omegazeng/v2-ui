@@ -16,3 +16,4 @@ SQLAlchemy
 tornado
 tzlocal
 Werkzeug
+pymysql

@@ -11,8 +11,8 @@ class Msg(dict):
 class User(db.Model):
     __tablename__ = 'user'
     id = Column(Integer, primary_key=True, autoincrement=True)
-    username = Column(String, unique=True, nullable=False)
-    password = Column(String, nullable=False)
+    username = Column(String(255), unique=True, nullable=False)
+    password = Column(String(255), nullable=False)
 
     def __init__(self, username, password):
         self.username = username
@@ -28,11 +28,11 @@ class User(db.Model):
 class Setting(db.Model):
     __tablename__ = 'setting'
     id = Column(Integer, primary_key=True, autoincrement=True)
-    key = Column(String, unique=True, nullable=False, default='')
-    name = Column(String, unique=True, nullable=False, default='')
-    value = Column(String, nullable=False, default='')
-    value_type = Column(String, nullable=False, default='text')
-    tip = Column(String, nullable=False, default='')
+    key = Column(String(255), unique=True, nullable=False, default='')
+    name = Column(String(255), unique=True, nullable=False, default='')
+    value = Column(String(4096), nullable=False, default='')
+    value_type = Column(String(50), nullable=False, default='text')
+    tip = Column(String(255), nullable=False, default='')
     need_restart = Column(Boolean, nullable=False, default=True)
 
     def __init__(self, key, name, value, value_type, tip='', need_restart=False):
